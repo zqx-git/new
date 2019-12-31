@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>b页面</title>
+  <style>
+    iframe {
+      width: 100%;
+      height: 300px;
+      background-color: rgb(198, 255, 132);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h3>这是b页面</h3>
+  </div>
+</body>
+<script type="text/javascript">
+  // a.com 下通过iframe 调用b.com下页面
+  // iframe 增加如下属性 sandbox="allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+  // b.com下的页面进行唤醒操作 尝试下是否可以进行
+
+  // 唤醒地址用qqnews://article_9527?nm=20191111A0O0W100&from=gaot47&adfrom=push
+
+  // 唤醒js代码用
+  // 安卓终端使用iframe
+  var iFrame = document.createElement("iframe")
+  iFrame.setAttribute("src", 'qqnews://article_9527?nm=20191111A0O0W100&from=gaot47&adfrom=push')
+  iFrame.setAttribute("style", "display:none;")
+  iFrame.setAttribute("height", "0px")
+  iFrame.setAttribute("width", "0px")
+  iFrame.setAttribute("frameborder", "0")
+  document.body.appendChild(iFrame)
+  console.log(iFrame)
+  // 发起请求后这个 iFrame 就没用了，所以把它从 dom 上移除掉
+  iFrame = null
+</script>
+
+</html>
